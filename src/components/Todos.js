@@ -4,14 +4,12 @@ import TodoItem from './TodoItem';
 
 class Todos extends Component{
 
-	markComplete = (id) => {
-		console.log(id);
-	}
+
 
 	render() {
 		return this.props.todos.map((todo) => (
 
-				<TodoItem key={todo.id} todo={todo} markComplete={this.markComplete}/>
+				<TodoItem key={todo.id} todo={todo} markComplete={this.props.markComplete} del={this.props.del}/>
 
 		));
 	}

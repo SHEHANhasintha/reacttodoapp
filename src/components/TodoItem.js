@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 
+const btnStyle = {
+	background: '#ccc',
+	float: 'right',
+	border:'none'
+}
+
 class Todos extends Component{
 	getStyle = () => {
 		if(this.props.todo.completed){
@@ -19,16 +25,17 @@ class Todos extends Component{
 
 
 
-
 	render() {
 		const { id, title } = this.props.todo;
 		return (
 			<div style={this.getStyle()}>
 				<input type="checkbox" onChange={this.props.markComplete.bind(this, id)} /> 
 				{ this.props.todo.title }
+				<button style={btnStyle} onClick={this.props.del.bind(this, id)}>X</button>
 			</div>
 		);
 	}
 }
+
 
 export default Todos;
